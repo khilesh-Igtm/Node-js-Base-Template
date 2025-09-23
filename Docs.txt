@@ -1,0 +1,58 @@
+In Express, a Router is like a mini-application that only handles routing and middleware. It’s created using express.Router(). The main purpose of using a router is to keep the code modular and organized instead of writing all the routes in app.js.
+
+For example, I can create a userRouter that contains all routes related to users like login, signup, profile, etc., and then mount it in the main app using app.use('/users', userRouter). This way, the application remains clean, scalable, and easier to maintain.
+
+The key benefit of Router in Express is separation of concerns, making the application modular and scalable.
+
+
+Used http-status-code for not manually adding the status code instead i can pass the status code name.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Used winston for generating a log file. Matlab jo bhi tum console.log krte ho na, usse production level par maintainable aur professional banane ka kaam Winston karta hai.
+
+console.log bas screen pe dikhata hai, but Winston:
+Logs ko file me store kar sakta hai 📂
+Multiple formats (JSON, plain text, custom) support karta hai
+Different levels of logging deta hai (error, warn, info, debug, etc.)
+Multiple "transports" (e.g., console, file, database, even cloud logging)
+Production-grade debugging aur monitoring possible ho jaata hai
+
+Logger → the main object (created by winston.createLogger())
+Levels → priority of logs (error > warn > info > debug, etc.)
+Transports → where logs will be saved (console, file, etc.)
+Formatters → how logs will look (timestamp, JSON, colors, etc.)
+
+If tomorrow my app crashes at 2 AM, Winston logs will help me trace the issue without just relying on console output.
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ORM (Object Relational Mapping)
+Used with SQL Databases (MySQL, PostgreSQL, etc.)
+Maps objects in code ↔ tables in relational DB
+You write JS/Java/Python objects instead of raw SQL queries.
+Handles joins, relations, schemas in a tabular / relational format.
+
+We use
+User.findAll({ where: { age: 22 } });
+instead of This
+SELECT * FROM users WHERE age = 22;
+
+
+ODM (Object Document Mapping)
+Used with NoSQL Databases (MongoDB etc.)
+Maps objects in code ↔ documents in NoSQL DB
+Works with collections & documents (JSON-like structure), not tables.
+Schema is flexible (because NoSQL is schema-less or schema-light).
+
+Use -> User.find({ age: 22 });
+instead of -> db.users.find({ age: 22 });
+
+ORM stands for Object Relational Mapping, which is used to work with relational databases like MySQL or PostgreSQL. It maps objects in the application to database tables.
+
+ODM stands for Object Document Mapping, which is used with document-oriented databases like MongoDB. It maps objects in the application to JSON-like documents in collections.
+
+In short: ORM → SQL tables; ODM → NoSQL documents.
